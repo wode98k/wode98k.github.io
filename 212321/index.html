@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+                font-size: 10px;
+			}
+	body{
+			
+			background: url(img/form_bg.jpg);
+			    background-size:100% 100%;
+                background-attachment: fixed;
+                
+                
+	}
+			h2{
+				font-size: 20px;
+				position: absolute;
+			    top: 150px;
+				right: 400px;
+			
+			}
+			 .c{
+            display: inline-block;
+            text-align: right;
+            width: 150px;
+
+        }
+		form{
+			
+			width: 650px;
+			height: 500px;
+			position: absolute;
+			top: 180px;
+		    right: 150px;
+		    0px;	
+		}
+		div{
+			margin: 20px;
+		}
+		input{
+			border: dashed 1px;
+			border-color:gray;
+				height: 20px;
+				margin: 0px;
+			width: 30%;
+			transition: 2s;
+		}
+		input:hover{
+			border: solid 1px;
+			border-color:gray;
+		box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.5) inset;
+		}
+		input[type="submit"],input[type="button"]{
+			border: none;
+			cursor: pointer;
+			background:rgb(147,181,24) ;
+			margin-right: 100px;
+			text-align: center;
+			color: white;
+			width: 100px;
+			height: 30px;
+		}
+		.b{
+		
+			position: absolute;
+			right: 110px;
+		}
+		input[type="color"]{
+			width: 20%;
+		}
+		
+		</style>
+	</head>
+	<body>
+	
+		
+		<h2>传智学院信息登记表</h2>
+		<form action="" method="post">	
+			<div>
+			<label for="" class="c">用户登录名:</label>
+			<input type="email" name="uesr" id="uesr" value="" placeholder="myemail@163.com"/ >
+			<label for="user">(不能修改,只能查看)</label>
+		
+			</div>
+				<div>
+			<label for="" class="c">真实姓名:</label>
+			<input type="text" name="name" id="name" value="" placeholder="列如:王明"/ >
+			<label for="user">(必须填写,只能输入汉字)</label>
+			
+			</div>	
+			<div>
+			<label for="" class="c">真实年龄:</label>
+			<input type="text" name="age" id="age" value="" / >
+			<label for="user">(必须填写)</label>
+			</div>	
+				<div>
+			<label for="" class="c">出生日期:</label>
+			<input type="date" name="date" id="date" value="" / >
+			<label for="user">(必须填写)</label>
+			</div>
+				<div>
+			<label for="" class="c">电子邮箱:</label>
+			<input type="email" name="date" id="date" value=""placeholder="123456@126.com" / >
+			<label for="user">(必须填写)</label>
+			</div>
+				<div>
+			<label for="" class="c">身份证号:</label>
+			<input type="text" name="number1" id="number1" value="" / >
+			<label for="user">(必须填写,能够以数字、字母x结尾的短身份证号)</label>
+			
+			</div>	
+			<div>
+			<label for="" class="c">手机号码:</label>
+			<input type="text" name="number" id="number" value="" / >
+			<label for="user">(必须填写)</label>
+			
+			</div>	
+			<div>
+			<label for="" class="c">个人主页:</label>
+			<input type="text" name="html" id="html" value="" placeholder="https://www.itcast.cn"/ >
+			<label for="user">(请选择网址)</label>
+			
+			</div>	
+			<div>	
+			<label for="" class="c">幸运颜色:</label>
+			<input type="color" name="color" id="color" value="" >
+			<label for="user">(请选择你喜欢的颜色)</label>
+			
+			</div >
+			<div class="b">
+			<input type="submit" value="提交"/>
+			<input type="button" value="重置"/>
+			</div>	
+		</form>
+
+		
+	</body>
+</html>
