@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body id="b">
+		<div style="margin-left: 600px;">
+			<input type="color" name="clolor" id="clolor" value="" onchange="ck()" />
+			<input type="button" name="btn" id="btn" value="更换背景色" onclick="uk()" />
+			<input type="button" name="sbtn" id="sbtn" value="随机变换背景色" onclick="ok()" />
+			<input type="button" name="cbtn" id="cbtn" value="每秒改变一次背景色" onclick="lk()"/>
+			<input type="button" name="stbtn" id="stbtn" value="停止" onclick="sk()"/>
+		</div>
+
+		<script type="text/javascript">
+			var c=document.getElementById("clolor");
+				var btn=document.getElementById("btn");
+				var b=document.getElementById("b");
+				var sbtn=document.getElementById("sbtn");
+				var cbtn=document.getElementById("cbtn");
+				var stbtn=document.getElementById("stbtn");
+				var t;
+              function  ck(){
+              btn.style.color=c.value;
+              }
+			function uk(){
+				b.style.backgroundColor=c.value;
+			}
+			function ok(){
+				var rm=parseInt(255*Math.random());
+				var gm=parseInt(255*Math.random());
+				var bm=parseInt(255*Math.random());
+				b.style.backgroundColor="#"+rm.toString(16)+gm.toString(16)+bm.toString(16);
+			}
+			function lk(){
+                ok();
+                t = window.setInterval("ok()",1000); 
+			}
+			function sk(){
+				window.clearInterval(t)
+			}
+		</script>
+	</body>
+
+</html>
