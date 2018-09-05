@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body id="b">
+		<div style="margin-left: 600px;">
+			<input type="color" name="clolor" id="clolor" value="" onchange="ck()" />
+			<input type="button" name="btn" id="btn" value="颜色" onclick="uk()" />
+		</div>
+
+		<script type="text/javascript">
+			var c=document.getElementById("clolor");
+				var btn=document.getElementById("btn");
+				var b=document.getElementById("b");
+              function  ck(){
+              btn.style.color=c.value;
+              }
+			function uk(){
+				b.style.backgroundColor=c.value;
+			}
+		</script>
+	</body>
+
+</html>
