@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#iu{
+				width: 400px;
+				height: 400px;
+				background: url(img/clock.jpg);
+				background-size:100% ;
+				position: relative;	
+			}
+			#sec{
+				width: 3px;
+				height: 120px;
+				background-color: red;
+				position: absolute;
+				left: 198px;
+				bottom: 200px;
+				transform-origin:50% 100% ;
+				/*transform: rotate(7deg);*/
+			}
+			#min{
+			width: 6px;
+				height: 80px;
+				background-color: black;
+				position: absolute;
+				left: 197px;
+				bottom: 200px;	
+				transform-origin:50% 100% ;
+			}
+			#houser{
+			width: 8px;
+				height: 60px;
+				background-color: black;
+				position: absolute;
+				left: 197px;
+				bottom: 200px;	
+				transform-origin:50% 100% ;	
+			}
+		</style>
+	</head>
+	<body>
+     <div id="iu">
+     	<div id="sec"></div>
+     	<div id="min"></div>
+     	<div id="houser"></div>
+     </div>
+     <p id="sss"></p>
+	</body>
+<script type="text/javascript">
+    var sec=document.getElementById("sec");
+    var sss=document.getElementById("sss");
+    var mins=document.getElementById("min");
+   var housers=document.getElementById("houser");
+    function sm(){  
+    	var date=new Date();
+    	var sc=date.getSeconds();
+
+        var houser=(date.getHours()+date.getMinutes()/60+date.getSeconds()/3600);
+    	
+    	var min=date.getMinutes();
+    	sec.style.transform="rotate("+(sc*6)+"deg)";
+    	mins.style.transform="rotate("+(min*6)+"deg)";
+    	console.log(houser);
+    	housers.style.transform="rotate("+(houser*30)+"deg)";
+    }
+    setInterval("sm()",100);
+</script>
+</html>
