@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+				body{
+				background-color: #11113f;
+				color: white;
+				font-family: 'Petit Formal Script', cursive;
+				overflow: hidden;
+			}
+			#title{
+				position: absolute;
+				text-align: center;
+				top: 50%;
+				left: 50%;
+				-webkit-transform: translate3d(-50%, -50%, 0);
+				transform: translate3d(-50%, -50%, 0);
+				z-index: 0;
+				font-size: 1.6em;
+			}
+			.snow{
+				width: 20px;
+				height: 20px;
+				position: fixed;
+				border-radius: 100%;
+				top: 300px;
+				left: 100px;
+				background-color: white;
+				opacity: 0.3;
+				filter: blur(4px);
+				z-index: 3;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="title">
+		<h1>Happy Holidays</h1>
+		</div>
+		<!--<div class="snow">
+			
+		</div>-->
+	</body>
+	<script type="text/javascript">
+//		var snowi=document.querySelector(".snow");
+//		var y=0;
+//	    var x=Math.random()*window.innerHeight;
+//	    snowi.style.left=x+"px";
+//	    function run(){
+//	    	
+//	    	if (y>window.innerHeight+20) {
+//	    		y=0;
+//	    	}
+//	    	y=y+20;
+//	    	snowi.style.top=y+"px";
+//	    	
+//	    	setTimeout(run,500);
+//	    }
+//	    run();
+//    function generate (){
+//    	var snowi=document.querySelector(".snow");
+//    	var y=0;
+//    	var x=Math.random()*window.innerHeight;
+//    	snowi.style.left=x+"px";
+//    	function run(){
+//      if (y>window.innerHeight+20) {
+//	    		y=0;
+//	    	}
+//	    	y=y+20;
+//	    	snowi.style.top=y+"px";
+//	    	
+//	    	setTimeout(run,500);	
+//    	}
+//    	run();
+//    	setTimeout(generate,1000);
+//    }
+//    generate();
+//  var snowi=new Array();
+////  var xs=new Array();
+//  var ys=new Array();
+//  var i=0;
+//  function generate(){
+//  	snowi[i]=document.querySelector(".snow");
+//  	snowi[i].style.left=Math.random()*window.innerHeight;
+//  	ys[i]=0;
+//  	
+//  	function run(){
+//  		ys[i]=ys[i]+20;
+//  		if (ys[i]>window.innerHeight+20) {
+//  			ys[i]=0;
+//  		}
+//  	
+//  		console.log(ys[i]);
+//  		snowi[i].style.top=ys[i]+"px";
+//  		//	    	snowi.style.top=y+"px";
+//  		setTimeout(run,500);
+//  	}
+//  	run();
+////  	setTimeout(generate,1000);
+////       i++;
+//  }
+//  generate();
+class show{
+	/*	
+	 			width: 20px;
+				height: 20px;
+				position: fixed;
+				border-radius: 100%;
+				top: 300px;
+				left: 100px;
+				background-color: white;
+				opacity: 0.3;
+				filter: blur(4px);
+				z-index: 3;
+	 */
+	constructor(){
+		this.opc=Math.random(0,1,false);
+		this.blurc=Math.random(0,1,false);
+		this.x=Math.random()*innerHeight;
+		this.y=20;
+	}
+	draw(){
+		var o=document.createElement("div");
+		o.body.appendChild(snow);
+	}
+}
+	</script>
+</html>
