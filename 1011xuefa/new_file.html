@@ -20,47 +20,105 @@
 				z-index: 0;
 				font-size: 1.6em;
 			}
-			/*.snow{
-				width: 20px;
-				height: 20px;
-				position: fixed;
+			.snow {
+				position: absolute;
+				background-color: #fff;
 				border-radius: 100%;
-				top: 300px;
-				left: 100px;
-				background-color: white;
-				opacity: 0.3;
-				filter: blur(4px);
-				z-index: 3;
-			}*/
+			}
+			#blr{
+				position: absolute;
+				top: 500px;
+				left: 10px;
+			    background: red;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="title">
 		<h1>Happy Holidays</h1>
 		</div>
-
+        <input type="button" id="blr" value=">>>"  onclick="wind_run()"/>
 	</body>
 	<script type="text/javascript">
-
+    var i=10;
+    var te=0;
+    var runaw=null;
+    var runwr=null;
+    var shown=new Array();
+		function random(min, max, isInt) {
+				var a = min + Math.random() * (max - min);
+				return isInt ? parseInt(a) : a;
+			}
 class Show{
-
 	constructor(){
-		this.hs=Math.random(15,20,false);
-		this.opc=Math.random(0,1,false);
-		this.blurc=Math.random(0,1,false);
-		this.x=Math.random()*innerHeight;
-		this.y=20;
-		this.z=Math.random(0,20,true);
+		this.hs=random(5,10,false);
+		this.opc=random(0,1,false);
+		this.blurc=random(0,1,false);
+		this.xn=Math.random()*innerWidth;
+		this.yn=-random(20,1000,false);
+        this.s = random(0.5, 3,false);
+		this.wind = random(-2, 2,false);
+	    
 	}
-	draw(){
-		var newdiv=document.createElement("div");
-		newdiv.className = "snow";
-	    document.body.appendChild(newdiv);
-	    newdiv.style.width=newdiv.style.height=this.hs;
-	    newdiv.style.color=
+	draw(){	
+		var newdiv=null;
+		this.newdiv=document.createElement("div");
+		this.newdiv.className = "snow";
+	    document.body.appendChild(this.newdiv);
+	    this.newdiv.style.width=this.newdiv.style.height=this.hs+"px";
+        this.newdiv.style.opacity=this.blurc;
+        
+	}
+	update(){ 
+	
+		this.yn=this.yn+this.s;
+		this.xn=this.xn+this.wind;
+	    if(this.yn>innerHeight){
+	this.xn=Math.random()*innerWidth;
+		this.yn=-random(20,1000,false);
+            
+	    }
+        this.newdiv.style.top=this.yn+"px";
+        this.newdiv.style.left=this.xn+"px";
+	}
+	blower(){
+		this.xn=this.xn+random(2,3	,false);
+		this.yn=this.yn+random(0.5, 2,false);
+		    this.newdiv.style.top=this.yn+"px";
+        this.newdiv.style.left=this.xn+"px";
 	}
 }
-var show =new Show();
-show.draw();
+
+function draws(){
+for(var i=0;i<100;i++){
+	var show=new Show();
+	show.draw();
+	shown.push(show);
+}
+}
+draws();
+function run(){
+	for(var i=0;i<shown.length;i++){
+  shown[i].update();
+  
+}
+ runaw=window.requestAnimationFrame(run);
+}
+run();
+     
+     function wind_run(){
+     		for(var i=0;i<shown.length;i++){
+       shown[i].blower();
+} 
+    
+    cancelAnimationFrame(runaw);
+    runwr=window.requestAnimationFrame(wind_run);
+    if(te==100){
+    cancelAnimationFrame(runwr);
+    run();
+    te=0;
+    }
+    te++;
+     }
 	</script>
 </html>
