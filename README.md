@@ -1,1 +1,1 @@
-# wode98k.github.io
+bye
