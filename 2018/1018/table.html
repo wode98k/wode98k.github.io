@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.dataTable{
+				border-collapse: collapse;
+				border: 1px solid #000;
+				width: 800px;
+				margin: auto;
+			}
+			.dataTable td,.dataTable th{
+				border: 1px solid #000;
+				text-align: center;
+				line-height: 1.5;
+			}
+			.dataTable th{
+				background-color: #333;
+				color: #fff;
+				height: 30px;
+				line-height: 30px;
+			}
+			td:nth-child(-n+5){
+				/*background-color: #f00;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<table class="dataTable">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>专业</th>
+					<th>城市</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>赵丽颖</td>
+					<td>16</td>
+					<td>影视<a href="">dd</a></td>
+					<td>石家庄</td>
+					<td>
+						<a href="javascript:">Edit</a>
+						<a href="javascript:">Del</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>姚明</td>
+					<td>22</td>
+					<td>体育</td>
+					<td>上海</td>
+					<td>
+						<a href="javascript:">Edit</a>
+						<a href="javascript:">Del</a>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>丁俊晖</td>
+					<td>23</td>
+					<td>台球</td>
+					<td>无锡</td>
+					<td>
+						<a href="javascript:">Edit</a>
+						<a href="javascript:">Del</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			var dataTable = document.querySelector('.dataTable');
+			//delList nodelist对象（类数组对象）
+			var delList = document.querySelectorAll('.dataTable tbody td:last-child a:last-child');
+			var editList = document.querySelectorAll('.dataTable tbody td:last-child a:first-child');
+			//实现删除操作
+			for (var i = 0; i < delList.length; i++) {
+				delList[i].addEventListener('click',function(event){
+					var currentDel = event.target;
+					var currentTr = currentDel.parentNode.parentNode;
+					//把某个东西从它父亲那儿删除
+					currentTr.parentNode.removeChild(currentTr);
+				});
+			}
+			//实现修改操作
+			for (var i = 0; i < editList.length; i++) {
+				editList[i].addEventListener('click',function(event){
+					var currentEdit = event.target;
+					var currentTr = currentEdit.parentNode.parentNode;
+					var fiveTd = currentTr.querySelectorAll('td:nth-child(-n+5)');
+					for (var i = 0; i < fiveTd.length; i++) {
+						fiveTd[i].setAttribute('contenteditable',true);
+					}
+					currentEdit.innerText = "Save";
+				})
+			}
+		</script>
+	</body>
+
+</html>

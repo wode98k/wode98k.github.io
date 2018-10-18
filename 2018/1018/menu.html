@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<style type="text/css">
+			.leftMenu{
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 60px;
+				height: 100%;
+				background-color: #ddd;
+				transition: left .5s;
+			}
+			.leftMenu.close{
+				left: -60px;
+			}
+			.leftButton{
+				position: fixed;
+				width: 40px;
+				height: 40px;
+				left: 10px;
+				bottom: 10px;
+				/*background-color: #00f;*/
+				transition:background-color .5s;
+			}
+			.leftButton.act{
+				
+				/*background-color: #f00;*/
+			}
+			.leftButton i{
+				font-size: 2em;
+				color: #FF0000;
+				transition:transform .5s;
+			}
+			.leftButton.act i{
+				transform: rotate(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="leftMenu">
+			
+		</div>
+		<div class="leftButton">
+			<i class="fa fa-arrow-left" aria-hidden="true"></i>
+		</div>
+		<script type="text/javascript">
+			var btn = document.querySelector('.leftButton');
+			var menu = document.querySelector('.leftMenu');
+			btn.addEventListener("click",function(){
+//				if(!menu.classList.contains('close')){
+//					menu.classList.add('close');
+//					btn.classList.add('act');
+//				}else{
+//					menu.classList.remove('close');
+//					btn.classList.remove('act');
+//				}
+				menu.classList.toggle('close');
+				btn.classList.toggle('act');
+			})
+		</script>
+	</body>
+</html>
