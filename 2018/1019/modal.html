@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="css/animate.css" rel="stylesheet">
+		<style type="text/css">
+			.leftMenu{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000;
+				margin: auto;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				opacity: 0;
+				transform:translate(-300px);
+				transition:transform .5s,opacity .2s;
+			}
+			.leftMenu .close{
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+			.leftMenu.act{
+				display: block;
+				opacity: 1;
+				transform:translate(0px);
+			}
+			.leftBtn{
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				position: fixed;
+				top: 50%;
+				right: 10px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="leftMenu">
+			<div class="content">
+				<iframe src="" width="200" height="200"></iframe>
+			</div>
+			<div class="close"><a href="javascript:">关闭</a></div>
+		</div>
+		<a class="openWin" href="javascript:" data-url="news1.html" data-content="新闻1">一条新闻消息</a>
+		<a class="openWin" href="javascript:" data-url="news2.html" data-content="新闻2">一条新闻消息2</a>
+		<script type="text/javascript">
+			var openBtn = document.querySelectorAll(".openWin");
+			var closeBtn = document.querySelector(".leftMenu .close");
+			var content = document.querySelector(".leftMenu .content iframe");
+			var menu = document.querySelector(".leftMenu");
+			for (var i = 0; i < openBtn.length; i++) {
+				openBtn[i].addEventListener("click",function(event){
+					menu.classList.add('act');
+					var target = event.target;
+//					console.log(target.getAttribute("data-content"));
+					var news = target.getAttribute("data-url");
+					content.src = news;
+				})
+			}
+			closeBtn.addEventListener("click",function(){
+				menu.classList.remove('act');
+//				menu.classList.toggle('bounceIn');
+//				menu.classList.toggle('fadeOut');
+			})
+		</script>
+	</body>
+</html>
